@@ -1,0 +1,45 @@
+2026-05-21 09:50:40,514 - agent - INFO - vector_store_milvus.py:35 - 成功连接到 Milvus 服务器 (localhost:19530)
+2026-05-21 09:50:40,519 - agent - ERROR - vector_store_milvus.py:205 - 程序运行失败: <ConnectionNotExistException: (code=1, message=should create connection first.)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 187, in <module>
+    vs = VectorStoreService()
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 38, in __init__
+    self.vector_store = Milvus(
+                        ~~~~~~^
+        collection_name=chroma_config["collection_name"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        auto_id=True,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 411, in __init__
+    self._init(
+    ~~~~~~~~~~^
+        partition_names=partition_names,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        replica_number=replica_number,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        timeout=timeout,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 733, in _init
+    self._extract_fields()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1018, in _extract_fields
+    if isinstance(self.col, Collection):
+                  ^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 580, in col
+    self._col_cache = Collection(self.collection_name, using=self.alias)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 202, in wrapper
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\orm\collection.py", line 121, in __init__
+    conn, context = self._get_connection(**kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\orm\collection.py", line 190, in _get_connection
+    handler = connections._fetch_handler(self._using)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\orm\connections.py", line 574, in _fetch_handler
+    raise ConnectionNotExistException(message=ExceptionsMessage.ConnectFirst)
+pymilvus.exceptions.ConnectionNotExistException: <ConnectionNotExistException: (code=1, message=should create connection first.)>

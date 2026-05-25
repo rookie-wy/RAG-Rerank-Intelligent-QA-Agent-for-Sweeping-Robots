@@ -1,0 +1,8 @@
+2026-05-20 18:00:26,357 - agent - INFO - vector_store_milvus.py:72 - Milvus 连接成功: http://localhost:19530
+2026-05-20 18:00:26,445 - agent - INFO - vector_store_milvus.py:197 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问.pdf 内容已经存在知识库中
+2026-05-20 18:00:26,457 - agent - INFO - vector_store_milvus.py:197 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问2.txt 内容已经存在知识库中
+2026-05-20 18:00:26,468 - agent - INFO - vector_store_milvus.py:197 - [加载知识库]D:\PythonProject\LC- Learn\data\扫拖一体机器人100问.txt 内容已经存在知识库中
+2026-05-20 18:00:26,481 - agent - INFO - vector_store_milvus.py:197 - [加载知识库]D:\PythonProject\LC- Learn\data\故障排除.txt 内容已经存在知识库中
+2026-05-20 18:00:26,496 - agent - INFO - vector_store_milvus.py:197 - [加载知识库]D:\PythonProject\LC- Learn\data\维护保养.txt 内容已经存在知识库中
+2026-05-20 18:00:26,508 - agent - INFO - vector_store_milvus.py:197 - [加载知识库]D:\PythonProject\LC- Learn\data\选购指南.txt 内容已经存在知识库中
+2026-05-20 18:00:26,510 - agent - WARNING - vector_store_milvus.py:114 - 向量库为空，返回仅向量检索器

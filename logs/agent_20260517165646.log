@@ -1,0 +1,31 @@
+2026-05-17 16:56:46,873 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问.pdf内容加载失败：`pypdf` package not found, please install it with `pip install pypdf`
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 76, in load_document
+    documents:list[Document] = get_file_documents(path)
+                               ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 57, in get_file_documents
+    return pdf_loader(read_path,None)
+  File "D:\PythonProject\LC- Learn\agent项目\utils\file_handler.py", line 49, in pdf_loader
+    return  PyPDFLoader(file_path,password).load()
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+        "`pypdf` package not found, please install it with `pip install pypdf`"
+    )
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-05-17 16:56:51,619 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问2.txt内容加载成功
+2026-05-17 16:56:57,464 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\扫拖一体机器人100问.txt内容加载成功
+2026-05-17 16:57:07,137 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\故障排除.txt内容加载成功
+2026-05-17 16:57:13,149 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\维护保养.txt内容加载成功
+2026-05-17 16:57:18,444 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\选购指南.txt内容加载成功

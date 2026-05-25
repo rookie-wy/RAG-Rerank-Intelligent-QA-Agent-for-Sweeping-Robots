@@ -1,0 +1,38 @@
+2026-05-17 16:55:16,183 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问.pdf内容加载失败：pdf_loader() missing 1 required positional argument: 'password'
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 76, in load_document
+    documents:list[Document] = get_file_documents(path)
+                               ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 57, in get_file_documents
+    return pdf_loader(read_path)
+TypeError: pdf_loader() missing 1 required positional argument: 'password'
+2026-05-17 16:55:16,185 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问2.txt内容加载失败：'VectorStoreService' object has no attribute 'vecotr_store'
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 87, in load_document
+    self.vecotr_store.add_document(spliter_document)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreService' object has no attribute 'vecotr_store'. Did you mean: 'vector_store'?
+2026-05-17 16:55:16,187 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\扫拖一体机器人100问.txt内容加载失败：'VectorStoreService' object has no attribute 'vecotr_store'
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 87, in load_document
+    self.vecotr_store.add_document(spliter_document)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreService' object has no attribute 'vecotr_store'. Did you mean: 'vector_store'?
+2026-05-17 16:55:16,188 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\故障排除.txt内容加载失败：'VectorStoreService' object has no attribute 'vecotr_store'
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 87, in load_document
+    self.vecotr_store.add_document(spliter_document)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreService' object has no attribute 'vecotr_store'. Did you mean: 'vector_store'?
+2026-05-17 16:55:16,189 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\维护保养.txt内容加载失败：'VectorStoreService' object has no attribute 'vecotr_store'
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 87, in load_document
+    self.vecotr_store.add_document(spliter_document)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreService' object has no attribute 'vecotr_store'. Did you mean: 'vector_store'?
+2026-05-17 16:55:16,191 - agent - ERROR - vector_store.py:94 - [加载知识库]D:\PythonProject\LC- Learn\data\选购指南.txt内容加载失败：'VectorStoreService' object has no attribute 'vecotr_store'
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store.py", line 87, in load_document
+    self.vecotr_store.add_document(spliter_document)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'VectorStoreService' object has no attribute 'vecotr_store'. Did you mean: 'vector_store'?

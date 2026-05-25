@@ -1,0 +1,6 @@
+2026-05-17 17:09:43,735 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问.pdf内容加载成功
+2026-05-17 17:09:47,561 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问2.txt内容加载成功
+2026-05-17 17:09:52,931 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\扫拖一体机器人100问.txt内容加载成功
+2026-05-17 17:10:02,596 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\故障排除.txt内容加载成功
+2026-05-17 17:10:09,008 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\维护保养.txt内容加载成功
+2026-05-17 17:10:13,353 - agent - INFO - vector_store.py:91 - [加载知识库]D:\PythonProject\LC- Learn\data\选购指南.txt内容加载成功

@@ -1,0 +1,436 @@
+2026-05-20 18:08:49,647 - agent - INFO - vector_store_milvus.py:70 - Milvus 连接成功: http://localhost:19530
+2026-05-20 18:08:53,304 - agent - ERROR - vector_store_milvus.py:229 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问.pdf 内容加载失败：<ConnectionNotExistException: (code=1, message=should create connection first.)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 221, in load_document
+    self.vector_store.add_documents(splited_documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 2303, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1402, in add_texts
+    return self.add_embeddings(
+           ~~~~~~~~~~~~~~~~~~~^
+        texts=texts,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1482, in add_embeddings
+    self._init(**kwargs)
+    ~~~~~~~~~~^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 733, in _init
+    self._extract_fields()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1018, in _extract_fields
+    if isinstance(self.col, Collection):
+                  ^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 580, in col
+    self._col_cache = Collection(self.collection_name, using=self.alias)
+                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 202, in wrapper
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\orm\collection.py", line 121, in __init__
+    conn, context = self._get_connection(**kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\orm\collection.py", line 190, in _get_connection
+    handler = connections._fetch_handler(self._using)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\orm\connections.py", line 574, in _fetch_handler
+    raise ConnectionNotExistException(message=ExceptionsMessage.ConnectFirst)
+pymilvus.exceptions.ConnectionNotExistException: <ConnectionNotExistException: (code=1, message=should create connection first.)>
+2026-05-20 18:08:58,827 - agent - ERROR - vector_store_milvus.py:229 - [加载知识库]D:\PythonProject\LC- Learn\data\扫地机器人100问2.txt 内容加载失败：<DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 221, in load_document
+    self.vector_store.add_documents(splited_documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 2303, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1402, in add_texts
+    return self.add_embeddings(
+           ~~~~~~~~~~~~~~~~~~~^
+        texts=texts,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1511, in add_embeddings
+    self._handle_batch_operation_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, batch_insert_list, i, total_count, "insert"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1552, in _handle_batch_operation_exception
+    raise e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1503, in add_embeddings
+    res = self.client.insert(
+        self.collection_name,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\milvus_client\milvus_client.py", line 256, in insert
+    res = conn.insert_rows(
+        collection_name,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 521, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 518, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 565, in handler
+    return func(self, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 456, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 419, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 136, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 121, in handler
+    return func(self, collection_name, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 759, in insert_rows
+    request = self._prepare_row_insert_request(
+        collection_name, entities, partition_name, schema, timeout, context=context, **kwargs
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 797, in _prepare_row_insert_request
+    return Prepare.row_insert_param(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        namespace=namespace,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 1120, in row_insert_param
+    return cls._parse_row_request(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        request, fields_info, struct_fields_info, enable_dynamic, entities
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 858, in _parse_row_request
+    raise DataNotMatchException(
+        message=ExceptionsMessage.InsertMissedField % key
+    )
+pymilvus.exceptions.DataNotMatchException: <DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+2026-05-20 18:09:04,336 - agent - ERROR - vector_store_milvus.py:229 - [加载知识库]D:\PythonProject\LC- Learn\data\扫拖一体机器人100问.txt 内容加载失败：<DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 221, in load_document
+    self.vector_store.add_documents(splited_documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 2303, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1402, in add_texts
+    return self.add_embeddings(
+           ~~~~~~~~~~~~~~~~~~~^
+        texts=texts,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1511, in add_embeddings
+    self._handle_batch_operation_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, batch_insert_list, i, total_count, "insert"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1552, in _handle_batch_operation_exception
+    raise e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1503, in add_embeddings
+    res = self.client.insert(
+        self.collection_name,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\milvus_client\milvus_client.py", line 256, in insert
+    res = conn.insert_rows(
+        collection_name,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 521, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 518, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 565, in handler
+    return func(self, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 456, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 419, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 136, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 121, in handler
+    return func(self, collection_name, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 759, in insert_rows
+    request = self._prepare_row_insert_request(
+        collection_name, entities, partition_name, schema, timeout, context=context, **kwargs
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 797, in _prepare_row_insert_request
+    return Prepare.row_insert_param(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        namespace=namespace,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 1120, in row_insert_param
+    return cls._parse_row_request(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        request, fields_info, struct_fields_info, enable_dynamic, entities
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 858, in _parse_row_request
+    raise DataNotMatchException(
+        message=ExceptionsMessage.InsertMissedField % key
+    )
+pymilvus.exceptions.DataNotMatchException: <DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+2026-05-20 18:09:14,394 - agent - ERROR - vector_store_milvus.py:229 - [加载知识库]D:\PythonProject\LC- Learn\data\故障排除.txt 内容加载失败：<DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 221, in load_document
+    self.vector_store.add_documents(splited_documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 2303, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1402, in add_texts
+    return self.add_embeddings(
+           ~~~~~~~~~~~~~~~~~~~^
+        texts=texts,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1511, in add_embeddings
+    self._handle_batch_operation_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, batch_insert_list, i, total_count, "insert"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1552, in _handle_batch_operation_exception
+    raise e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1503, in add_embeddings
+    res = self.client.insert(
+        self.collection_name,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\milvus_client\milvus_client.py", line 256, in insert
+    res = conn.insert_rows(
+        collection_name,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 521, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 518, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 565, in handler
+    return func(self, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 456, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 419, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 136, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 121, in handler
+    return func(self, collection_name, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 759, in insert_rows
+    request = self._prepare_row_insert_request(
+        collection_name, entities, partition_name, schema, timeout, context=context, **kwargs
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 797, in _prepare_row_insert_request
+    return Prepare.row_insert_param(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        namespace=namespace,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 1120, in row_insert_param
+    return cls._parse_row_request(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        request, fields_info, struct_fields_info, enable_dynamic, entities
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 858, in _parse_row_request
+    raise DataNotMatchException(
+        message=ExceptionsMessage.InsertMissedField % key
+    )
+pymilvus.exceptions.DataNotMatchException: <DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+2026-05-20 18:09:19,402 - agent - ERROR - vector_store_milvus.py:229 - [加载知识库]D:\PythonProject\LC- Learn\data\维护保养.txt 内容加载失败：<DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 221, in load_document
+    self.vector_store.add_documents(splited_documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 2303, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1402, in add_texts
+    return self.add_embeddings(
+           ~~~~~~~~~~~~~~~~~~~^
+        texts=texts,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1511, in add_embeddings
+    self._handle_batch_operation_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, batch_insert_list, i, total_count, "insert"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1552, in _handle_batch_operation_exception
+    raise e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1503, in add_embeddings
+    res = self.client.insert(
+        self.collection_name,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\milvus_client\milvus_client.py", line 256, in insert
+    res = conn.insert_rows(
+        collection_name,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 521, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 518, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 565, in handler
+    return func(self, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 456, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 419, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 136, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 121, in handler
+    return func(self, collection_name, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 759, in insert_rows
+    request = self._prepare_row_insert_request(
+        collection_name, entities, partition_name, schema, timeout, context=context, **kwargs
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 797, in _prepare_row_insert_request
+    return Prepare.row_insert_param(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        namespace=namespace,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 1120, in row_insert_param
+    return cls._parse_row_request(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        request, fields_info, struct_fields_info, enable_dynamic, entities
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 858, in _parse_row_request
+    raise DataNotMatchException(
+        message=ExceptionsMessage.InsertMissedField % key
+    )
+pymilvus.exceptions.DataNotMatchException: <DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+2026-05-20 18:09:23,681 - agent - ERROR - vector_store_milvus.py:229 - [加载知识库]D:\PythonProject\LC- Learn\data\选购指南.txt 内容加载失败：<DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
+Traceback (most recent call last):
+  File "D:\PythonProject\LC- Learn\agent项目\RAG\vector_store_milvus.py", line 221, in load_document
+    self.vector_store.add_documents(splited_documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 2303, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1402, in add_texts
+    return self.add_embeddings(
+           ~~~~~~~~~~~~~~~~~~~^
+        texts=texts,
+        ^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1511, in add_embeddings
+    self._handle_batch_operation_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, batch_insert_list, i, total_count, "insert"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1552, in _handle_batch_operation_exception
+    raise e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\langchain_milvus\vectorstores\milvus.py", line 1503, in add_embeddings
+    res = self.client.insert(
+        self.collection_name,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\milvus_client\milvus_client.py", line 256, in insert
+    res = conn.insert_rows(
+        collection_name,
+    ...<4 lines>...
+        **kwargs,
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 521, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 518, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 565, in handler
+    return func(self, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 456, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 419, in handler
+    return func(*args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 136, in handler
+    raise e from e
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\decorators.py", line 121, in handler
+    return func(self, collection_name, *args, **kwargs)
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 759, in insert_rows
+    request = self._prepare_row_insert_request(
+        collection_name, entities, partition_name, schema, timeout, context=context, **kwargs
+    )
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\grpc_handler.py", line 797, in _prepare_row_insert_request
+    return Prepare.row_insert_param(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        collection_name,
+        ^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        namespace=namespace,
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 1120, in row_insert_param
+    return cls._parse_row_request(
+           ~~~~~~~~~~~~~~~~~~~~~~^
+        request, fields_info, struct_fields_info, enable_dynamic, entities
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\PythonProject\LC- Learn\.venv\Lib\site-packages\pymilvus\client\prepare.py", line 858, in _parse_row_request
+    raise DataNotMatchException(
+        message=ExceptionsMessage.InsertMissedField % key
+    )
+pymilvus.exceptions.DataNotMatchException: <DataNotMatchException: (code=1, message=Insert missed an field `producer` to collection without set nullable==true or set default_value)>
